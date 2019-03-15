@@ -11,7 +11,7 @@ const app = express();
 // o res = object representing outgoing response.
 // o Immediately send back some JSON to whoever made the request.
 app.get('/', (req, res) => {
-    res.send({ hi: 'there' });
+    res.send({ hello: 'world' });
 });
 
 // Express tells Node what port to listen on.  We get it dynamically from Heroku.
