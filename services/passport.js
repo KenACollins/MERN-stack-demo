@@ -28,20 +28,17 @@ passport.use(
         callbackURL: '/auth/google/callback',
         proxy: true
     },
-    (accessToken, refreshToken, profile, done) => {
+    async (accessToken, refreshToken, profile, done) => {
         // Check users collection for possible existence of current user.  Add user to collection only if he/she is NOT already present.
-        User.findOne({ googleId: profile.id })
-            .then(existingUser => {  // Search result is not instantaneous, but asynchronous and returns a promise.  Get answer in then().
-                if (existingUser) {  // If a model instance for this specific user was found in collection...
-                    // Do not add duplicate!  Just signal we are done.
-                    done(null, existingUser);   // 1st parm is error object (none here, pass null), 2nd parm is User object.
-                }
-                else {
-                    // Create a new User model instance and invoke save() method to persist in MongoDB.
-                    new User({ googleId: profile.id })
-                        .save()                             // We don't know when this will finish so it returns a promise.
-                        .then(user => done(null, user));    // When promise resolves, it passes back the newly created User object that we can pass to done().
-                }
-            });
+        const existingUser = await User.findOne({ googleId: profile.id });  // Asynchronous operation returns a promise.
+        if (existingUser) {  // If a model instance for this specific user was found in collection...
+            // Do not add duplicate!  Just signal we are done.
+            done(null, existingUser);   // 1st parm is error object (none here, pass null), 2nd parm is User object.
+        }
+        else {
+            // Create a new User model instance and invoke save() method to persist in MongoDB.
+            const user = await new User({ googleId: profile.id }).save();   // Asynchronous operation returns a promise.
+            done(null, user);    // When promise resolves, it passes back the newly created User object that we can pass to done().
+        }
     })
 );

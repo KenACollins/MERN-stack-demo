@@ -19,14 +19,24 @@ module.exports = app => {
     );
 
     /**
-     * Create a route handler that tells Passport to handle the code sent back by Google OAuth.
+     * Create a route handler for defining what happens after user comes back from OAuth flow.
+     * It accept three parameters:
+     * 1. Relative URI where Google sends back response.
+     * 2. Passport middleware that does further Google authentication.
+     * 3. Arrow function telling browser that it needs to go to another route.
      */
-    app.get('/auth/google/callback', passport.authenticate('google'));
+    app.get(
+        '/auth/google/callback', 
+        passport.authenticate('google'),
+        (req, res) => {
+            res.redirect('/surveys');
+        } 
+    );
 
     /** Provide a means for user to sign out of our application. */
     app.get('/api/logout', (req, res) => {
         req.logout();           // Kill user cookie.
-        res.send(req.user);     // Pass back something to tell user they are undefined.  If blank screen appears - user is logged out.
+        res.redirect('/');      // Send user back to landing page.
     });
     
     /**
