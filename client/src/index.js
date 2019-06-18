@@ -8,6 +8,11 @@ import reduxThunk from 'redux-thunk';
 import App from './components/App';
 import reducers from './reducers';  // Import all the reducers from the reducers folder.
 
+// START TEMP CODE - test back-end routing.
+import axios from 'axios';
+window.axios = axios;
+// END TEMP CODE
+
 /**
  * Create Redux store and pass the following parameters.
  * 1) all the reducers - Before we had any, we passed a dummy reducer that returns an array, () => [].

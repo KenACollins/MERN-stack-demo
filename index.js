@@ -1,8 +1,9 @@
-// Import Mongoose package, then keys config and User model files.
+// Import Mongoose package, then keys config and our model class files.
 // It is essential that User model be imported before /services/passport.js references it.
 const mongoose = require('mongoose');
 const keys = require('./config/keys');
 require('./models/User');
+require('./models/Survey');
 
 // Import Express package and Body Parser Express middleware.
 const express = require('express');
@@ -42,6 +43,10 @@ require('./routes/authRoutes')(app);
 // Import exported route handler function from billingRoutes.js and invoke it passing app object.  This invokes Stripe
 // but before doing so, it runs middleware from server/middleware/requireLogin.js to ensure user is logged in.
 require('./routes/billingRoutes')(app);
+// Import exported route handler function from surveyRoutes.js and invoke it passing app object.  This invokes ????
+// but before doing so, it runs middleware from server/middleware/requireLogin.js to ensure user is logged in and
+// requireCredits.js to ensure user has ability to pay for a new survey.
+require('./routes/surveyRoutes')(app);
 
 // Help Express in production locate routes in the client app when route handlers are not defined for them in the Express app.
 if (process.env.NODE_ENV === 'production') {
