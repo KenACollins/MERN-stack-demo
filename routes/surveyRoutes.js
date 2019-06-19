@@ -42,6 +42,7 @@ module.exports = app => {
      * Web hook for SendGrid to communicate to our back-end the results of survey voting.
      */
     app.post('/api/surveys/webhooks', (req, res) => {
+        console.log('Processing web hook...');
         const p = new Path('/api/surveys/:surveyId/:choice');
 
         _.chain(req.body)                   // We want to chain a set of lodash functions acting on req.body array.
