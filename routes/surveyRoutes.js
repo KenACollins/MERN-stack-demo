@@ -42,7 +42,7 @@ module.exports = app => {
      * Web hook for SendGrid to communicate to our back-end the results of survey voting.
      */
     app.post('/api/surveys/webhooks', (req, res) => {
-        console.log('Processing web hook...');
+        console.log('Processing web hook...'); // testing
         const p = new Path('/api/surveys/:surveyId/:choice');
 
         _.chain(req.body)                   // We want to chain a set of lodash functions acting on req.body array.
@@ -130,6 +130,7 @@ module.exports = app => {
     
             // Deduct one credit from user's account for successful survey creation, submission, and save.
             req.user.credits -= 1;
+            console.log('Just deducted a credit.'); // testing
     
             // Save updated user in MongoDB and likewise refresh our local copy of the user.
             // This will cause header in our React app to automatically update to reflect current credits count.
