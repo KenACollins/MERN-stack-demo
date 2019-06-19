@@ -42,6 +42,11 @@ module.exports = app => {
      * Web hook for SendGrid to communicate to our back-end the results of survey voting.
      */
     app.post('/api/surveys/webhooks', (req, res) => {
+        console.log('*************Processing web hook (not really)...'); // testing
+        res.send({});                       // Send a response back to SendGrid, not that it is expecting one.
+    });
+
+/*     app.post('/api/surveys/webhooks', (req, res) => {
         console.log('Processing web hook...'); // testing
         const p = new Path('/api/surveys/:surveyId/:choice');
 
@@ -62,7 +67,7 @@ module.exports = app => {
                  * o This update happens on MongoDB side, it is not passed back to our Express server where we have to search 
                  *   through results and make update to MongoDB ourselves.
                  */
-                Survey.updateOne({
+/*                 Survey.updateOne({
                     _id: surveyId,
                     recipients: { $elemMatch: { email: email, responded: false }}
                 }, {
@@ -79,7 +84,7 @@ module.exports = app => {
             .value();                       // Get final result of lodash chained methods.
         
         res.send({});                       // Send a response back to SendGrid, not that it is expecting one.
-    });
+    }); */
 
     /**
      * In this case, any time a user makes a POST request to '/api/surveys' (1st 
