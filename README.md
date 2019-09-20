@@ -17,7 +17,7 @@ Click on the link in the header to log in with Google. You will see the followin
 
 "To continue, Google will share your name, email address, language preference, and profile picture with afternoon-scrubland-21801.herokuapp.com."
 
-Rest assured that in my app, I am NOT accessing, storing, or even looking at your name, email address, language preference,and profile picture. The only piece of data I use is a unique token (a long garbled string of letters and numbers) that Google passes back to identify you which I store in a cookie in your web browser so that I can distinguish you from other users when later retrieving records stored on your behalf in the back-end MongoDB database.
+Rest assured that in my app, I am NOT accessing, storing, or even looking at your name, email address, language preference, and profile picture. The only piece of data I use is a unique token (a long garbled string of letters and numbers) that Google passes back to identify you which I store in a cookie in your web browser so that I can distinguish you from other users when later retrieving records stored on your behalf in the back-end MongoDB database.
 
 Enter a real Gmail email adddress (or a business email address that uses Gmail), click Next, then enter your password, and click Next. If you have successfully logged in, you will notice that the right side of the header of the web app has changed to specify Logout.
 
@@ -58,4 +58,7 @@ Your web browser will be launched and opened to the app. Your vote will be count
 FYI, the app contains additional logic to ensure that it only counts one vote per email.
 
 ## View Survey Results
-Unfortunately, this part of the app is not working. What is supposed to happen is if you refresh the app in your browser, the dashboard that contains information about each of your surveys is supposed to update the Yes and No counts. The problem lies with the SendGrid tool not communicating with the back-end MongoDB database. I am still debugging the issue.
+Unfortunately, this part of the app is not working. What is supposed to happen is if you refresh the app in your browser, the dashboard that contains information about each of your surveys is supposed to update the Yes and No counts. The problem lies with the SendGrid tool not communicating with the back-end MongoDB database. I am debugging the issue.
+
+## Log Out
+Click on the Logout link in the web app to sign out.
