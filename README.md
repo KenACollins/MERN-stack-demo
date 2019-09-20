@@ -57,7 +57,7 @@ Your web browser will be launched and opened to the app. Your vote will be count
 
 FYI, the app contains additional logic to ensure that it only counts one vote per email.
 
-## View Survey Results
+### View Survey Results
 Unfortunately, this part of the app is not working. What is supposed to happen is if you refresh the app in your browser, the dashboard that contains information about each of your surveys is supposed to update the Yes and No counts. The problem lies with the SendGrid tool not communicating with the back-end MongoDB database. I am debugging the issue.
 
 ### Log Out
