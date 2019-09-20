@@ -50,7 +50,7 @@ When you are ready, click on the "Send Survey" button.
 
 You will be taken to a dashboard screen that shows all the surveys you have conducted, which is just one at this point.
 
-## Respond to Survey
+### Respond to Survey
 Check your email - whichever account(s) you entered in the survey recipient list. You should see a new email in your inbox for the survey you just sent. It will contain the survey question along with Yes/No links. Answer the survey by clicking on either Yes or No. 
 
 Your web browser will be launched and opened to the app. Your vote will be counted and you will see a message "Thanks for voting!"
@@ -60,5 +60,5 @@ FYI, the app contains additional logic to ensure that it only counts one vote pe
 ## View Survey Results
 Unfortunately, this part of the app is not working. What is supposed to happen is if you refresh the app in your browser, the dashboard that contains information about each of your surveys is supposed to update the Yes and No counts. The problem lies with the SendGrid tool not communicating with the back-end MongoDB database. I am debugging the issue.
 
-## Log Out
+### Log Out
 Click on the Logout link in the web app to sign out.
