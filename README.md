@@ -1,4 +1,4 @@
-# MERN-stack-demo
+# B2B Surveys App Built on MERN Stack
 Demo app built on full stack React (MERN) featuring Google OAuth for login, Stripe for credit card payments, SendGrid for mass e-mailing of surveys to multiple recipients, Express for routing API requests from front-end to back-end, MongoDB for data persistence, and Redux for state management.
 
 The app is built around the idea that I am providing a B2B service for businesses that want to send a survey to their customers.  The Stripe billing is where I charge the business for this service.  If they have purchased some credits in bulks of 5 credits for $5, then I allow the business to present a one question survey per credit to a list of users via email. 
